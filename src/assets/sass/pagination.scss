@@ -1,0 +1,27 @@
+.pagination {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    outline: none;
+    border: none;
+    background-color: #5c5987;
+    padding: 15px 25px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: white;
+    box-shadow: 1px 1px 4px black;
+
+    &:hover {
+      background-color: #7d7b97;
+    }
+
+    &:hover:active {
+      box-shadow: inset -1px -1px 3px rgba(255, 255, 255, 0.7),
+        inset 2px 2px 2px rgba(116, 116, 116, 0.7);
+    }
+  }
+}

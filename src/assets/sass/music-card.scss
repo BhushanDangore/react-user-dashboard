@@ -1,0 +1,21 @@
+.m-card-wrapper {
+  max-height: 220px;
+  background-color: #ffded8;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ffb5a7;
+  }
+
+  p {
+    margin: 8px 0;
+    color: rgb(48, 48, 48);
+  }
+}
