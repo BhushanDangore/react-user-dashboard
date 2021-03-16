@@ -6,6 +6,7 @@ export const StoreContext = createContext();
 
 // Initial state
 const initialState = {
+  profile: null,
   users: null,
 };
 

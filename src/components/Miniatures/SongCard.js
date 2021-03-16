@@ -9,7 +9,7 @@ const variants = {
 
 export default function SongCard({
   name,
-  email,
+  lastname,
   transitionDelay,
   username,
   phone,
@@ -26,24 +26,16 @@ export default function SongCard({
         transition={{ delay: transitionDelay }}
       >
         <p>
-          <span>Name: </span>
+          <span>First Name: </span>
           {name}
         </p>
         <p>
-          <span>Email: </span>
-          {email}
+          <span>Last Name: </span>
+          {lastname}
         </p>
         <p>
           <span>User Name: </span>
           {username}
-        </p>
-        <p>
-          <span>Phone Number: </span>
-          {phone}
-        </p>
-        <p>
-          <span>Website: </span>
-          {website}
         </p>
       </motion.div>
     </Link>

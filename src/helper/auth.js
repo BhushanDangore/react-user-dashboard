@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export function getToken() {
   const existingToken = sessionStorage.getItem("token");
   if (existingToken) return existingToken;
@@ -22,4 +24,14 @@ export function getToken() {
     return _token;
   }
   return false;
+}
+  
+export function setToken(token) {
+  axios.defaults.headers.common['Authorization'] = "Bearer "+token;
+  sessionStorage.setItem('token', token);
+}
+
+export function removeToken(token) {
+  axios.defaults.headers.common['Authorization'] = "";
+  sessionStorage.removeItem('token');
 }

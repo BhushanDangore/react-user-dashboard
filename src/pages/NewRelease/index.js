@@ -42,20 +42,12 @@ export default function NewRelease() {
               {user.username}
             </Card.Text>
             <Card.Text>
-              <span>Name: </span>
-              {user.name}
+              <span>First Name: </span>
+              {user.firstName}
             </Card.Text>
             <Card.Text>
-              <span>Email: </span>
-              {user.email}
-            </Card.Text>
-            <Card.Text>
-              <span>Website: </span>
-              {user.website}
-            </Card.Text>
-            <Card.Text>
-              <span>Phone: </span>
-              {user.phone}
+              <span>Last Name: </span>
+              {user.lastName}
             </Card.Text>
           </Card.Body>
         </Card>

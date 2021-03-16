@@ -7,11 +7,9 @@ export default function Grid({ items, title, inline }) {
   const gridItems = items.map((item, idx) => (
     <SongCard
       key={idx}
-      name={item.name}
-      email={item.email}
+      name={item.firstName}
+      lastname={item.lastName}
       username={item.username}
-      phone={item.phone}
-      website={item.website}
       link={`/user-view/${item.id}`}
       transitionDelay={Math.random().toFixed(2) / 4}
     />

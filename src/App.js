@@ -16,7 +16,7 @@ let _token = getToken();
 
 function App() {
   const [token, setToken] = useState();
-  const { dispatch } = useStoreContext();
+  const { state, dispatch } = useStoreContext();
 
   const root = routes.map((route, index) => {
     return route.component ? (
@@ -46,7 +46,7 @@ function App() {
     <div className="App">
       <Router>
         <NavigationBar />
-        {true ? (
+        {state.profile ? (
           <Fragment>
             <Switch>{root}</Switch>
           </Fragment>

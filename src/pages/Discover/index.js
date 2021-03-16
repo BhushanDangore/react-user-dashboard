@@ -15,6 +15,8 @@ export default function Home() {
 
   const { NewReleases } = state;
 
+  console.log(NewReleases);
+
   return (
     <div className="main-content">
       <DiscoverHeader title="User List" />

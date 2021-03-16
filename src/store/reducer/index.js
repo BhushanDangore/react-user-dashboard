@@ -1,8 +1,17 @@
-import { SET_USER_PROFILE, SET_GENRES, SET_USERS, SET_TOKEN } from "../types";
-
+import { SET_USER_PROFILE, SET_GENRES, SET_USERS, SET_TOKEN, SET_USER } from "../types";
+import {setToken} from '../../helper/auth'
 // Reducer
 export default function storeReducer(state, action) {
   switch (action.type) {
+    case SET_USER: {
+      let newState = { ...state };
+      newState.profile = action.payload
+        ? action.payload
+        : false;
+
+      return newState;
+    }
+
     case SET_USERS: {
       let newState = { ...state };
       newState.users = action.payload
@@ -49,6 +58,7 @@ export default function storeReducer(state, action) {
     }
 
     case SET_TOKEN: {
+      setToken()
       let newState = { ...state };
       newState.token = action.payload;
       return newState;

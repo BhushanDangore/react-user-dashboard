@@ -1,26 +1,32 @@
 import axios from "axios";
-import { SET_USER_PROFILE, SET_GENRES, SET_USERS, SET_TOKEN } from "../types";
+import { setToken } from "../../helper/auth";
+import {
+  SET_USER_PROFILE,
+  SET_GENRES,
+  SET_USERS,
+  SET_TOKEN,
+  SET_USER,
+} from "../types";
 
 // Action creators
 
-export function getUsers({ limit = 10, offset = 0 } = {}) {
-  let params = new URLSearchParams({ limit, offset });
-
-  params.set("limit", limit);
-  params.set("offset", offset);
-
-  const url = "https://jsonplaceholder.typicode.com/users?" + params.toString();
+export function loginUser({ username, password }) {
+  const url = "http://localhost:4000/users/authenticate";
 
   return axios
-    .get(url)
+    .post(url, { username, password })
     .then((res) => {
+      if(!res.data?.token) throw new Error("Login failed");
+
+      setToken(res.data.token)
       return {
-        type: SET_USERS,
+        type: SET_USER,
         payload: res.data || false,
       };
+      
     })
     .catch((err) => {
-      return { type: SET_USERS, payload: false };
+      return { type: SET_USER, payload: false };
     });
 }
 
@@ -40,25 +46,24 @@ export function getProfile({ limit = 10, offset = 0 } = {}) {
     });
 }
 
-export function getGenres({ limit = 10, offset = 0 } = {}) {
+export function getUsers({ limit = 10, offset = 0 } = {}) {
   let params = new URLSearchParams({ limit, offset });
 
   params.set("limit", limit);
   params.set("offset", offset);
 
-  const url =
-    "https://api.spotify.com/v1/browse/categories?" + params.toString();
+  const url = "http://localhost:4000/users"
 
   return axios
     .get(url)
     .then((res) => {
       return {
-        type: SET_GENRES,
-        payload: res.data?.categories?.items || false,
+        type: SET_USERS,
+        payload: res.data || false,
       };
     })
     .catch((err) => {
-      return { type: SET_GENRES, payload: false };
+      return { type: SET_USERS, payload: false };
     });
 }
 
